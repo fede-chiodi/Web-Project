@@ -1,4 +1,4 @@
-For startin the project you have to launch these command from terminal inside the project directory cinema_web_platform
+For start the project you have to launch these command from terminal inside the project directory cinema_web_platform
 
 1. npm install (to install all the dependecies and the used library present in packaje.json)
 2. sudo /opt/lampp/xampp start (to start the connection with the database, only if you have xampp)
