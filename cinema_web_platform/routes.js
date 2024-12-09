@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { Movie } from '../models/Movie.js';
-import { Booking } from '../models/Booking.js';
+import { Movie } from './models/Movie.js';
+import { Booking } from './models/Booking.js';
 import { inviaConfermaCinema, inviaDisdettaCinema, inviaRicevutaEmail, inviaDisdettaEmail } from './mailer_system.js';
 
 
@@ -97,7 +97,7 @@ router.post('/cancel_booking', async (req, res, next) => {
     const seat = parseInt(booking_datas.rm_seat);
     const movie = await Movie.findOne({ where: { routename: booking_datas.rm_movie } });
     if(movie === null) {
-        res.status(400).send("Booking not found or you are not authorized to cancel this booking");
+        res.status(400).send("Invalid request");
         return;
     }
     const booking = await Booking.findOne({ where: { movie_id: movie.id, seat: seat } });

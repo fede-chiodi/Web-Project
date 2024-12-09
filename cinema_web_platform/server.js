@@ -7,8 +7,8 @@ import sequelize from './connection.js';
 import { init_transporter } from './mailer_system.js';
 // import {create_movies} from './models/Movie.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename); 
+const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+const __dirname = path.dirname(__filename); // get the name of the directory
 
 const app = express();
 const port = 3000;

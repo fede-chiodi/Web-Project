@@ -7,7 +7,7 @@ export const init_transporter = () => {
         service: 'gmail', 
         auth: {
             user: 'your email for the cinema', 
-            pass: 'your-psw for the email account' 
+            pass: 'your password for the email' 
         }
     });
 
@@ -18,7 +18,7 @@ export const init_transporter = () => {
 
 export const inviaRicevutaEmail = (nome, cognome, email, telefono, posto, film, prezzo) => {
     const mailOptions = {
-        from: 'your email fo the cinema', 
+        from: 'your email for the cinema', 
         to: email,
         subject: `Conferma Prenotazione Biglietto - ${film}`,
         text: `
@@ -46,7 +46,7 @@ export const inviaRicevutaEmail = (nome, cognome, email, telefono, posto, film, 
 
 export const inviaDisdettaEmail = (nome, cognome, email, telefono, posto, film, data) => {
     const mailOptions = {
-        from: 'your email fo the cinema', 
+        from: 'your email for the cinema', 
         to: email,
         subject: `Conferma Disdetta del Biglietto - ${film}`,
         text: `
@@ -75,7 +75,7 @@ export const inviaDisdettaEmail = (nome, cognome, email, telefono, posto, film, 
 export const inviaConfermaCinema = (nome, cognome, email, telefono, posto, film) => {
     const mailOptions = {
         from: email, 
-        to: 'your email fo the cinema',
+        to: 'your email for the cinema',
         subject: `Conferma prenotazione del Biglietto - ${film}`,
         text: `
             Prenotazione avvenuta con successo del biglietto per ${film}, 
@@ -99,7 +99,7 @@ export const inviaConfermaCinema = (nome, cognome, email, telefono, posto, film)
 export const inviaDisdettaCinema = (nome, cognome, email, telefono, posto, film, data) => {
     const mailOptions = {
         from: email, 
-        to: 'your email fo the cinema',
+        to: 'your email for the cinema',
         subject: `Conferma Disdetta del Biglietto - ${film}`,
         text: `
             Disdetta avvenuta con successo del biglietto per ${film}, 
