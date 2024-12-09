@@ -1,0 +1,9 @@
+For startin the project you have to launch these command from terminal inside the project directory cinema_web_platform
+
+1. npm install (to install all the dependecies and the used library present in packaje.json)
+2. sudo /opt/lampp/xampp start (to start the connection with the database, only if you have xampp)
+3. npm start (to start the server)
+
+You also have to create a gmail account fo the "cinema" and then you have to go the password for the app 
+(you find it in a section in yout gmail account). 
+
