@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/cinema.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src= "/js/script.js"></script>
+  <title><%= movie.title %></title>
+</head>
+<body>
+  <header>
+    <div class="button_sec">
+      <a href="/landing">
+        <button class="back_home">
+          Torna alla home
+        </button>
+      </a>
+    </div>
+    <h1>Prenotazioni Biglietti - <%= movie.title %></h1>
+  </header>
+  
+  <main>
+    <section class="seats_view">
+      <div> 
+        <p class="demo">Posti liberi: <%= (200 - occupiedSeats.length) %></p>
+        <p class="demo2">Posti occupati: <%= (occupiedSeats.length) %></p>
+      </div>
+    </section>
+
+    <section class="sala">
+      <div id="sala_cinema">
+        <% for (let i = 0; i < 200; i++) { %> 
+          <% let poltronaStato = ""; %>
+          <% let seatStatusClass = ""; %>
+          <% if(occupiedSeats.find((seat) => seat === i) != undefined) { %>
+              <% poltronaStato = "/images/poltronaRossa.png"; %>
+              <% seatStatusClass = "booked"; %>
+          <% } else { %>
+              <% poltronaStato = "/images/poltronaNera.png"; %>
+              <% seatStatusClass = "available"; %>
+          <% } %>
+          <img src="<%= poltronaStato %>" class="seat <%= seatStatusClass %>" id="seat_<%= i %>" onclick="handleClickSeat('<%= i %>', '<%= seatStatusClass %>')"/>
+       <% } %>
+      </div>
+    </section>
+    
+    <section class="modal_section">
+      <div id="myModal" class="modal"> 
+        <div class="modal_content">
+          <span class="close" onclick="hide_modal()">&times;</span>
+          <div class="prenotazione_content">
+            <form action="/add_booking" method="post">
+                <div>
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" placeholder="Inserisci nome" required>
+                </div>
+                <div>
+                    <label for="surname">Cognome</label>
+                    <input type="text" id="surname" name="surname" placeholder="Inserisci cognome" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Inserisci email" required>
+                </div>
+                <div>
+                    <label for="number">Numero di telefono</label>
+                    <input type="tel" id="number" name="number" placeholder="Inserisci numero di telefono" required>
+                </div>
+                <div class="last_section_modal">
+                    <input type="hidden" id="seat_input" name="seat" value="">
+                    <input type="hidden" id="price_input" name="price" value="<%= movie.price %>">
+                    <input type="hidden" id="movie_input" name="movie" value="<%= movie.routename %>">
+                    <button type="submit"> INVIA DATI </button>
+                </div> 
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="modal_section">
+      <div id="myRemoveBookingModal" class="modal"> 
+        <div class="modal_content">
+          <span class="close" onclick="hide_removeBooking_modal()">&times;</span>
+          <div class="prenotazione_content">
+            <form action="/cancel_booking" method="post">
+                <input type="hidden" id="rm_seat_input" name="rm_seat" value="">
+                <input type="hidden" id="rm_movie_input" name="rm_movie" value="<%= movie.routename %>">
+                <button type="submit"> INVIA DISDETTA </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <%- include('footer') %>
+</body>
+</html>

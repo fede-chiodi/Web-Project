@@ -1,0 +1,36 @@
+footer {
+    background-color: rgb(81, 29, 29);
+    color: #fff;
+    padding: 50px 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.footer-section h4 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    font-size: 20px;
+    margin: 0;
+}
+
+@media screen and (max-width: 550px) {
+    .footer-container {
+        flex-direction: column;
+    }
+}

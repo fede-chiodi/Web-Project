@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Aggiunto per forzare il corpo a riempire l'intera altezza della finestra */
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+header > h1 {
+    font-size: 4rem;
+    color: rgb(81, 29, 29);
+    text-align: center;
+}
+
+header > p {
+    font-size: 1rem;
+    color: black;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main > section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie_option {
+    background-color: rgb(81, 29, 29);
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie_option:hover{
+    background-color: rgba(41, 41, 70, 0.928);
+    transform: scale(1.05);
+}
+
+.movie_option > a {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 350px;
+    height: 300px;
+}
+
+footer {
+    background-color: rgb(81, 29, 29);
+    color: #fff;
+    padding: 50px 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    position: relative; 
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.footer-section h4 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    font-size: 20px;
+    margin: 0;
+}
+
+@media screen and (max-width: 550px) {
+    header > h1 {
+        font-size: 2.5rem;
+    }
+
+    main {
+        margin-top: 50px;
+    }
+
+    .movie_option {
+        width: 300px;
+        height: 300px;
+    }
+
+    .image {
+        width: 250px;
+        height: 200px;
+    }
+}
+
+
+@media (min-width: 2200px) {
+    .movie_option {
+        width: 500px;
+        height: 500px;
+    }
+
+    .image {
+        width: 450px;
+        height: 400px;
+    }
+}

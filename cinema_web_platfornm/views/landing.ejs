@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/landing.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <title>Landing Page</title>
+</head>
+<body>
+    <header>
+        <h1><%= title %></h1>
+        <p><%= message %></p>
+    </header>
+    <main>
+        <section>
+            <% for(let movie of movies) { %>
+                <div class="movie_option">
+                    <a href="/landing/<%= movie.routename %>">
+                        <div class="details">
+                            <p>PRENOTA PER VEDERE <%= movie.title %></p>
+                            <img class="image" src="<%= movie.imageurl %>">
+                        </div> 
+                    </a>
+                </div>
+            <% } %>
+        </section>
+    </main>
+    <!-- <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Cinema</h4>
+                <p>La tua esperienza cinematografica unica.</p>
+                <p>&copy; 2024 Cinema - Tutti i diritti riservati</p>
+            </div>
+            <div class="footer-section">
+                <p>Contattaci alla seguente email</p>
+                <br>
+                <p>cinema.webplatform@gmail.com</p>
+            </div>
+        </div>
+    </footer>     -->
+    <%- include('footer') %>
+</body>
+</html>
